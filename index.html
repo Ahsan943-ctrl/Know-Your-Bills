@@ -8,22 +8,44 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+    }
+    .left-column {
+      width: 100%;
+      max-width: 220px;
+      margin-right: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+    }
+    .main-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .container {
       background: white;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      width: 350px;
+      width: 100%;
+      max-width: 350px;
+      box-sizing: border-box;
+      margin-top: 20px;
     }
     h1 {
       text-align: center;
       color: #007BFF;
+      font-size: 24px;
     }
     form {
       margin-bottom: 20px;
@@ -31,13 +53,16 @@
     label {
       display: block;
       margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
     }
     input {
       width: 100%;
-      padding: 10px;
+      padding: 7px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     }
     button {
       width: 100%;
@@ -48,6 +73,7 @@
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
+      transition: background-color 0.3s ease;
     }
     button:hover {
       background-color: #0056b3;
@@ -55,6 +81,7 @@
     #links h2 {
       text-align: center;
       color: #333;
+      margin-top: 0;
     }
     ul {
       list-style: none;
@@ -70,62 +97,171 @@
       color: #007BFF;
       font-size: 16px;
       margin-left: 10px;
+      transition: color 0.3s ease;
     }
     a:hover {
       text-decoration: underline;
+      color: #0056b3;
     }
     img {
       width: 30px;
       height: 30px;
     }
+    .definitions {
+      margin-top: 20px;
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 350px;
+    }
+    .definition {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .definition strong {
+      color: #007BFF;
+    }
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+    .footer a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .info {
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+    }
+    .info h2 {
+      color: #007BFF;
+      margin-top: 0;
+    }
+    .info p {
+      margin-bottom: 15px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        align-items: center;
+      }
+      .left-column {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        margin-bottom: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Know Your Bills</h1>
-    <form id="bill-form">
-      <label for="customer-id">Enter Reference Number:</label>
-      <input type="text" id="customer-id" name="customer-id" required>
-      <button type="submit">Check Bills</button>
-    </form>
-    <div id="links">
-      <h2>Bill Links</h2>
-      <ul>
-        <li>
-          <img src="KE.png" alt="K-Electric">
-          <a id="ke-link" href="https://www.ke.com.pk/customer-services/bill-inquiry/" target="_blank">K-Electric Bill Inquiry</a>
-        </li>
-        <li>
-          <img src="iesco.jfif" alt="IESCO">
-          <a id="iesco-link" href="https://bill.pitc.com.pk/iescobill" target="_blank">IESCO Bill Inquiry</a>
-        </li>
-        <li>
-          <img src="sngpl_logo.png" alt="SNGPL">
-          <a id="sngpl-link" href="https://www.sngpl.com.pk/index.jsp?pgids=313&pgname=Bill%20Tracking" target="_blank">SNGPL Gas Bill Inquiry</a>
-        </li>
-        <li>
-          <img src="ssgc_logo.png" alt="SSGC">
-          <a id="ssgc-link" href="https://www.ssgc.com.pk/web/?page_id=243" target="_blank">SSGC Gas Bill Inquiry</a>
-        </li>
-        <li>
-          <img src="mepco.png" alt="MEPCO">
-          <a id="mepco-link" href="https://bill.pitc.com.pk/mepcobill" target="_blank">MEPCO Bill Inquiry</a>
-        </li>
-        <li>
-          <img src="GEPCO-Logo.png" alt="GEPCO">
-          <a id="gepco-link" href="https://bill.pitc.com.pk/gepcobill" target="_blank">GEPCO Bill Inquiry</a>
-        </li>
-        <li>
-          <img src="LESCOLogo80x80.png" alt="LESCO">
-          <a id="lesco-link" href="https://bill.pitc.com.pk/lescobill" target="_blank">LESCO Bill Inquiry</a>
-        </li>
-        <li>
-          <img src="fesco_logo.png" alt="FESCO">
-          <a id="fesco-link" href="https://bill.pitc.com.pk/fescobill" target="_blank">FESCO Bill Inquiry</a>
-        </li>
-      </ul>
+  <div class="left-column">
+    <h2>Bill Links</h2>
+    <ul>
+      <li>
+        <img src="KE.png" alt="K-Electric">
+        <a id="ke-link" href="https://www.ke.com.pk/customer-services/bill-inquiry/" target="_blank">K-Electric Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="iesco.jfif" alt="IESCO">
+        <a id="iesco-link" href="https://bill.pitc.com.pk/iescobill" target="_blank">IESCO Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="SNGPL.png" alt="SNGPL">
+        <a id="sngpl-link" href="https://www.sngpl.com.pk/index.jsp?pgids=313&pgname=Bill%20Tracking" target="_blank">SNGPL Gas Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="SSGC logo.jfif" alt="SSGC">
+        <a id="ssgc-link" href="https://www.ssgc.com.pk/web/?page_id=243" target="_blank">SSGC Gas Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="mepco.png" alt="MEPCO">
+        <a id="mepco-link" href="https://bill.pitc.com.pk/mepcobill" target="_blank">MEPCO Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="GEPCO-Logo.png" alt="GEPCO">
+        <a id="gepco-link" href="https://bill.pitc.com.pk/gepcobill" target="_blank">GEPCO Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="LESCOLogo80x80.png" alt="LESCO">
+        <a id="lesco-link" href="https://bill.pitc.com.pk/lescobill" target="_blank">LESCO Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="fesco_logo.png" alt="FESCO">
+        <a id="fesco-link" href="https://bill.pitc.com.pk/fescobill" target="_blank">FESCO Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="qesco logo.jfif" alt="QESCO">
+        <a id="qesco-link" href="https://www.qesco.com.pk/bill-inquiry/" target="_blank">QESCO Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="hesco logo.jfif" alt="HESCO">
+        <a id="hesco-link" href="https://www.hesco.gov.pk/bill-inquiry/" target="_blank">HESCO Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="sepco logo.jfif" alt="SEPCO">
+        <a id="sepco-link" href="https://www.sepco.com.pk/bill-inquiry/" target="_blank">SEPCO Bill Inquiry</a>
+      </li>
+      <li>
+        <img src="Pesco Logo.jfif" alt="PESCO">
+        <a id="pesco-link" href="https://www.pesco.gov.pk/bill-inquiry/" target="_blank">PESCO Bill Inquiry</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="main-column">
+    <div class="container">
+      <h1>Know Your Bills</h1>
+      <form id="bill-form">
+        <label for="customer-id">Enter Reference Number:</label>
+        <input type="text" id="customer-id" name="customer-id" required>
+        <button type="submit">Check Bills</button>
+      </form>
+    </div>
+
+    <div class="definitions container">
+      <h2>Definitions</h2>
+      <div class="definition">
+        <strong>Voltage:</strong> Voltage is like the pressure that pushes electricity through wires. It's measured in volts (V).
+      </div>
+      <div class="definition">
+        <strong>Current:</strong> Current is the flow of electric charge through a wire. It's measured in amperes (A), or amps.
+      </div>
+      <div class="definition">
+        <strong>Power:</strong> Power is the rate at which electricity is used or produced. It's measured in watts (W). It tells you how much energy is being used per second.
+      </div>
+    </div>
+
+    <div class="info container">
+      <h2>Electricity Consumption Information</h2>
+      <p><strong>1 Ton AC:</strong> Consumes about 1.0 to 1.5 kWh per hour of operation. Over a month, this can be quite significant if used frequently.</p>
+      <p><strong>1.5 Ton AC:</strong> Consumes about 1.5 to 2.0 kWh per hour. This higher capacity unit is suitable for larger rooms but consumes more electricity.</p>
+      <p><strong>Refrigerator:</strong> Typically uses between 100 to 200 kWh per month, depending on size and efficiency. Modern refrigerators are designed to be more energy-efficient.</p>
+      <p><strong>Electric Iron:</strong> Consumes around 1.0 to 2.0 kWh per hour of use. The actual usage depends on how long and often you use it.</p>
+    </div>
+
+    <div class="footer">
+      &copy; 2024 Utility Bills Info. All rights reserved. <br>
+      <a href="https://www.example.com" target="_blank">Privacy Policy</a> | <a href="https://www.example.com" target="_blank">Terms of Service</a>
     </div>
   </div>
+
   <script>
     document.getElementById('bill-form').addEventListener('submit', function(event) {
       event.preventDefault();
@@ -134,20 +270,24 @@
 
       // Define bill inquiry URLs with placeholder for reference number
       const billLinks = {
-        KE: 'https://www.ke.com.pk/customer-services/bill-inquiry/?ref=',
+        KE: 'https://staging.ke.com.pk:24555/ReBrand/DuplicateBill.aspx',
         IESCO: 'https://bill.pitc.com.pk/iescobill/general?refno=',
-        SNGPL: 'https://www.sngpl.com.pk/index.jsp?pgids=313&pgname=Bill%20Tracking&ref=',
+        SNGPL: 'https://www.sngpl.com.pk/login.jsp?mdids=85',
         SSGC: 'https://www.ssgc.com.pk/web/?page_id=243&ref=',
-        MEPCO: 'https://bill.pitc.com.pk/mepcobill/general?refno=',
+        MEPCO: 'https://bill.pitc.com.pk/Mepcobill/general?refno=',
         GEPCO: 'https://bill.pitc.com.pk/gepcobill/general?refno=',
         LESCO: 'https://bill.pitc.com.pk/lescobill/general?refno=',
-        FESCO: 'https://bill.pitc.com.pk/fescobill/general?refno='
+        FESCO: 'https://bill.pitc.com.pk/fescoill/general?refno=',
+        QESCO: 'https://bill.pitc.com.pk/qescobill/general?refno=',
+        HESCO: 'https://bill.pitc.com.pk/hescobill/general?refno=',
+        SEPCO: 'https://bill.pitc.com.pk/sepcobill/general?refno=',
+        PESCO: 'https://bill.pitc.com.pk/pescobill/general?refno='
       };
 
       // Add your reference number patterns here
       if (/^KE\d{10}$/.test(customerId)) {
         billLink = billLinks.KE + customerId;
-      } else if (/^IES\d{13}$/.test(customerId)) {
+      } else if (/^\d{2}14\d{10}$/.test(customerId)) {
         billLink = billLinks.IESCO + customerId;
       } else if (/^SNG\d{10}$/.test(customerId)) {
         billLink = billLinks.SNGPL + customerId;
@@ -161,6 +301,14 @@
         billLink = billLinks.LESCO + customerId;
       } else if (/^\d{2}13\d{10}$/.test(customerId)) {
         billLink = billLinks.FESCO + customerId;
+      } else if (/^\d{2}48\d{10}$/.test(customerId)) {
+        billLink = billLinks.QESCO + customerId;
+      } else if (/^\d{2}37\d{10}$/.test(customerId)) {
+        billLink = billLinks.HESCO + customerId;
+      } else if (/^\d{2}38\d{10}$/.test(customerId)) {
+        billLink = billLinks.SEPCO + customerId;
+      } else if (/^\d{2}26\d{10}$/.test(customerId)) {
+        billLink = billLinks.PESCO + customerId;
       } else {
         alert('Invalid Reference Number');
         return;
